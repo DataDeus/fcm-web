@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TalentPage } from "@/components/talent-grid";
-import { womenImages } from "@/lib/models";
+import { womenModels } from "@/lib/models";
 
 export const Route = createFileRoute("/women")({
   head: () => ({
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/women")({
     <TalentPage
       title="Women"
       subtitle="Bold presence. Unmistakable style. The women shaping the next era of global fashion."
-      images={womenImages}
+      models={womenModels}
     />
   ),
 });
