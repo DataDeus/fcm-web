@@ -1,13 +1,15 @@
 import { SiteNav, SiteFooter } from "@/components/site-nav";
+import { Link } from "@tanstack/react-router";
+import type { Model } from "@/lib/models";
 
 export function TalentPage({
   title,
   subtitle,
-  images,
+  models,
 }: {
   title: string;
   subtitle: string;
-  images: string[];
+  models: Model[];
 }) {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -19,18 +21,28 @@ export function TalentPage({
       </section>
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {images.map((src, i) => (
-            <figure key={i} className="group overflow-hidden">
-              <img
-                src={src}
-                alt={`${title} model ${i + 1}`}
-                loading="lazy"
-                className="aspect-[3/4] w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-              <figcaption className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Model {String(i + 1).padStart(2, "0")}
-              </figcaption>
-            </figure>
+          {models.map((m) => (
+            <Link
+              key={m.slug}
+              to="/models/$slug"
+              params={{ slug: m.slug }}
+              className="group block overflow-hidden"
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={m.cover}
+                  alt={m.name}
+                  loading="lazy"
+                  className="aspect-[3/4] w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="mt-2 flex items-center justify-between">
+                <span className="font-display text-lg">{m.name}</span>
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground group-hover:text-foreground">
+                  View →
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

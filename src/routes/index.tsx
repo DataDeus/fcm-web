@@ -53,8 +53,8 @@ function Index() {
               The First Cent Way — a global model management home rooted in Africa, building outlasting legacies.
             </p>
             <div className="mt-10 flex gap-4">
-              <a href="#contact" className="rounded-full bg-background px-6 py-3 text-xs uppercase tracking-[0.2em] text-foreground transition hover:opacity-90">
-                Join Us
+              <a href="#get-scouted" className="rounded-full bg-background px-6 py-3 text-xs uppercase tracking-[0.2em] text-foreground transition hover:opacity-90">
+                Get Scouted
               </a>
               <Link to="/gallery" className="rounded-full border border-primary-foreground/30 px-6 py-3 text-xs uppercase tracking-[0.2em] transition hover:bg-primary-foreground/10">
                 View Gallery
@@ -124,11 +124,11 @@ function Index() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-24 text-primary-foreground">
+      <section id="get-scouted" className="bg-primary py-24 text-primary-foreground">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="font-display text-5xl md:text-6xl">Get scouted.</h2>
           <p className="mt-4 opacity-80">We are always looking for fresh faces and bold presence.</p>
-          <a href="#contact" className="mt-8 inline-block rounded-full bg-background px-8 py-3 text-xs uppercase tracking-[0.2em] text-foreground">
+          <a href="mailto:hello@firstcentmodels.com" className="mt-8 inline-block rounded-full bg-background px-8 py-3 text-xs uppercase tracking-[0.2em] text-foreground">
             Apply Now
           </a>
         </div>

@@ -13,6 +13,7 @@ import { Route as WomenRouteImport } from './routes/women'
 import { Route as MenRouteImport } from './routes/men'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ModelsSlugRouteImport } from './routes/models.$slug'
 
 const WomenRoute = WomenRouteImport.update({
   id: '/women',
@@ -34,18 +35,25 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ModelsSlugRoute = ModelsSlugRouteImport.update({
+  id: '/models/$slug',
+  path: '/models/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
   '/women': typeof WomenRoute
+  '/models/$slug': typeof ModelsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
   '/women': typeof WomenRoute
+  '/models/$slug': typeof ModelsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
   '/women': typeof WomenRoute
+  '/models/$slug': typeof ModelsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gallery' | '/men' | '/women'
+  fullPaths: '/' | '/gallery' | '/men' | '/women' | '/models/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gallery' | '/men' | '/women'
-  id: '__root__' | '/' | '/gallery' | '/men' | '/women'
+  to: '/' | '/gallery' | '/men' | '/women' | '/models/$slug'
+  id: '__root__' | '/' | '/gallery' | '/men' | '/women' | '/models/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   MenRoute: typeof MenRoute
   WomenRoute: typeof WomenRoute
+  ModelsSlugRoute: typeof ModelsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/models/$slug': {
+      id: '/models/$slug'
+      path: '/models/$slug'
+      fullPath: '/models/$slug'
+      preLoaderRoute: typeof ModelsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   MenRoute: MenRoute,
   WomenRoute: WomenRoute,
+  ModelsSlugRoute: ModelsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
