@@ -97,7 +97,7 @@ function ModelPage() {
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Portfolio</p>
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {model.images.map((src, i) => (
+          {model.images.map((src: string, i: number) => (
             <img
               key={i}
               src={src}
