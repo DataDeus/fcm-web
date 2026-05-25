@@ -5,11 +5,10 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "Home", to: "/", hash: "" },
   { label: "About", to: "/", hash: "#about" },
+  { label: "Talents", to: "/", hash: "#talents" },
   { label: "Services", to: "/", hash: "#services" },
-  { label: "Women", to: "/women" },
-  { label: "Men", to: "/men" },
   { label: "Gallery", to: "/gallery" },
-  { label: "Contact", to: "/", hash: "#contact" },
+  { label: "Get Scouted", to: "/", hash: "#get-scouted" },
 ] as const;
 
 export function SiteNav() {
