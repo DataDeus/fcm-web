@@ -35,8 +35,7 @@ function GalleryPage() {
             </p>
           </div>
           <Link
-            to="/"
-            hash="#talents"
+            to="/talents"
             className="inline-flex items-center self-start rounded-full bg-primary px-6 py-3 text-xs uppercase tracking-[0.2em] text-primary-foreground transition hover:opacity-90"
           >
             Book a Model →
