@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
 import { womenImages, menImages } from "@/lib/models";
+import { CtaButtons } from "@/components/cta-buttons";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,9 +33,9 @@ function Index() {
   ];
 
   const services = [
-    { name: "Scouting", body: "We identify and nurture exceptional talent from the earliest stages — discovering presence, passion, and potential." },
-    { name: "Development", body: "Catwalk coaching, camera presence, personal branding and professional readiness — tailored to each model." },
-    { name: "Placement", body: "Strategic placement with top-tier agencies across global fashion capitals through our network." },
+    { name: "Runway & Posing", body: "From the way you walk to the way you hold a frame — the fundamentals, refined." },
+    { name: "Camera Presence", body: "Editorial, commercial and campaign — learning to communicate with the lens." },
+    { name: "Brand Development", body: "Building a long-term personal brand that travels with you globally." },
   ];
 
   return (
@@ -52,13 +53,8 @@ function Index() {
             <p className="mt-6 max-w-md text-sm opacity-80">
               The First Cent Way — a global model management home rooted in Africa, building outlasting legacies.
             </p>
-            <div className="mt-10 flex gap-4">
-              <a href="#get-scouted" className="rounded-full bg-background px-6 py-3 text-xs uppercase tracking-[0.2em] text-foreground transition hover:opacity-90">
-                Get Scouted
-              </a>
-              <Link to="/gallery" className="rounded-full border border-primary-foreground/30 px-6 py-3 text-xs uppercase tracking-[0.2em] transition hover:bg-primary-foreground/10">
-                View Gallery
-              </Link>
+            <div className="mt-10">
+              <CtaButtons tone="dark" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -69,7 +65,7 @@ function Index() {
       </section>
 
       {/* About */}
-      <section id="about" className="mx-auto max-w-7xl px-6 py-24">
+      <section className="mx-auto max-w-7xl px-6 py-24">
         <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">About</p>
         <h2 className="mt-4 max-w-3xl font-display text-5xl md:text-6xl">Why choose us?</h2>
         <div className="mt-16 grid gap-12 md:grid-cols-3">
@@ -80,16 +76,24 @@ function Index() {
             </div>
           ))}
         </div>
+        <div className="mt-12">
+          <Link to="/about" className="text-xs uppercase tracking-[0.3em] underline-offset-4 hover:underline">
+            Read our story →
+          </Link>
+        </div>
       </section>
 
       {/* Talents preview */}
-      <section id="talents" className="bg-secondary py-24">
+      <section className="bg-secondary py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-end justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Talents</p>
               <h2 className="mt-4 font-display text-5xl">Our roster</h2>
             </div>
+            <Link to="/talents" className="hidden text-xs uppercase tracking-[0.3em] underline-offset-4 hover:underline md:inline">
+              View all →
+            </Link>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Link to="/women" className="group relative block overflow-hidden">
@@ -108,10 +112,14 @@ function Index() {
         </div>
       </section>
 
-      {/* Services */}
-      <section id="services" className="mx-auto max-w-7xl px-6 py-24">
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Services</p>
-        <h2 className="mt-4 font-display text-5xl md:text-6xl">What we do</h2>
+      {/* Academy preview */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Academy</p>
+        <h2 className="mt-4 font-display text-5xl md:text-6xl">You don't just learn. You evolve.</h2>
+        <p className="mt-6 max-w-2xl text-sm text-muted-foreground">
+          A rigorous, success-driven training experience led by industry experts — covering runway, camera presence,
+          professionalism, and brand development.
+        </p>
         <div className="mt-16 grid gap-px bg-border md:grid-cols-3">
           {services.map((s, i) => (
             <div key={s.name} className="bg-background p-10">
@@ -121,16 +129,21 @@ function Index() {
             </div>
           ))}
         </div>
+        <div className="mt-12">
+          <Link to="/academy" className="text-xs uppercase tracking-[0.3em] underline-offset-4 hover:underline">
+            Discover the Academy →
+          </Link>
+        </div>
       </section>
 
       {/* CTA */}
-      <section id="get-scouted" className="bg-primary py-24 text-primary-foreground">
+      <section className="bg-primary py-24 text-primary-foreground">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="font-display text-5xl md:text-6xl">Get scouted.</h2>
-          <p className="mt-4 opacity-80">We are always looking for fresh faces and bold presence.</p>
-          <a href="mailto:hello@firstcentmodels.com" className="mt-8 inline-block rounded-full bg-background px-8 py-3 text-xs uppercase tracking-[0.2em] text-foreground">
-            Apply Now
-          </a>
+          <h2 className="font-display text-5xl md:text-6xl">Style. Talent. Strength.</h2>
+          <p className="mt-4 opacity-80">Get scouted, or book one of our talents — the First Cent way.</p>
+          <div className="mt-8 flex justify-center">
+            <CtaButtons tone="dark" />
+          </div>
         </div>
       </section>
 

@@ -4,11 +4,10 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "Home", to: "/", hash: "" },
-  { label: "About", to: "/", hash: "#about" },
-  { label: "Talents", to: "/", hash: "#talents" },
-  { label: "Services", to: "/", hash: "#services" },
+  { label: "About", to: "/about" },
+  { label: "Talents", to: "/talents" },
+  { label: "Academy", to: "/academy" },
   { label: "Gallery", to: "/gallery" },
-  { label: "Get Scouted", to: "/", hash: "#get-scouted" },
 ] as const;
 
 export function SiteNav() {
@@ -20,7 +19,7 @@ export function SiteNav() {
         <Link to="/" className="font-display text-2xl tracking-tight">
           First Cent
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <Link
               key={l.label}
@@ -32,8 +31,22 @@ export function SiteNav() {
             </Link>
           ))}
         </nav>
+        <div className="hidden items-center gap-3 lg:flex">
+          <Link
+            to="/talents"
+            className="rounded-full border border-foreground/20 px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-foreground transition hover:bg-foreground/5"
+          >
+            Book a Model
+          </Link>
+          <a
+            href="mailto:hello@firstcentmodels.com?subject=Get%20Scouted"
+            className="rounded-full bg-primary px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-primary-foreground transition hover:opacity-90"
+          >
+            Get Scouted
+          </a>
+        </div>
         <button
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -41,7 +54,7 @@ export function SiteNav() {
         </button>
       </div>
       {open && (
-        <nav className="flex flex-col gap-4 border-t border-border/60 px-6 py-6 md:hidden">
+        <nav className="flex flex-col gap-4 border-t border-border/60 px-6 py-6 lg:hidden">
           {links.map((l) => (
             <Link
               key={l.label}
@@ -53,6 +66,22 @@ export function SiteNav() {
               {l.label}
             </Link>
           ))}
+          <div className="mt-2 flex flex-col gap-3">
+            <Link
+              to="/talents"
+              onClick={() => setOpen(false)}
+              className="rounded-full border border-foreground/20 px-4 py-2 text-center text-[10px] uppercase tracking-[0.2em]"
+            >
+              Book a Model
+            </Link>
+            <a
+              href="mailto:hello@firstcentmodels.com?subject=Get%20Scouted"
+              onClick={() => setOpen(false)}
+              className="rounded-full bg-primary px-4 py-2 text-center text-[10px] uppercase tracking-[0.2em] text-primary-foreground"
+            >
+              Get Scouted
+            </a>
+          </div>
         </nav>
       )}
     </header>
