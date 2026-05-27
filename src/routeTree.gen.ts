@@ -10,14 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WomenRouteImport } from './routes/women'
+import { Route as TalentsRouteImport } from './routes/talents'
 import { Route as MenRouteImport } from './routes/men'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as AcademyRouteImport } from './routes/academy'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ModelsSlugRouteImport } from './routes/models.$slug'
 
 const WomenRoute = WomenRouteImport.update({
   id: '/women',
   path: '/women',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TalentsRoute = TalentsRouteImport.update({
+  id: '/talents',
+  path: '/talents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenRoute = MenRouteImport.update({
@@ -28,6 +36,16 @@ const MenRoute = MenRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademyRoute = AcademyRouteImport.update({
+  id: '/academy',
+  path: '/academy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,38 +61,75 @@ const ModelsSlugRoute = ModelsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academy': typeof AcademyRoute
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
+  '/talents': typeof TalentsRoute
   '/women': typeof WomenRoute
   '/models/$slug': typeof ModelsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academy': typeof AcademyRoute
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
+  '/talents': typeof TalentsRoute
   '/women': typeof WomenRoute
   '/models/$slug': typeof ModelsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academy': typeof AcademyRoute
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
+  '/talents': typeof TalentsRoute
   '/women': typeof WomenRoute
   '/models/$slug': typeof ModelsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gallery' | '/men' | '/women' | '/models/$slug'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/academy'
+    | '/gallery'
+    | '/men'
+    | '/talents'
+    | '/women'
+    | '/models/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gallery' | '/men' | '/women' | '/models/$slug'
-  id: '__root__' | '/' | '/gallery' | '/men' | '/women' | '/models/$slug'
+  to:
+    | '/'
+    | '/about'
+    | '/academy'
+    | '/gallery'
+    | '/men'
+    | '/talents'
+    | '/women'
+    | '/models/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/academy'
+    | '/gallery'
+    | '/men'
+    | '/talents'
+    | '/women'
+    | '/models/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AcademyRoute: typeof AcademyRoute
   GalleryRoute: typeof GalleryRoute
   MenRoute: typeof MenRoute
+  TalentsRoute: typeof TalentsRoute
   WomenRoute: typeof WomenRoute
   ModelsSlugRoute: typeof ModelsSlugRoute
 }
@@ -86,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/women'
       fullPath: '/women'
       preLoaderRoute: typeof WomenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/talents': {
+      id: '/talents'
+      path: '/talents'
+      fullPath: '/talents'
+      preLoaderRoute: typeof TalentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/men': {
@@ -100,6 +162,20 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academy': {
+      id: '/academy'
+      path: '/academy'
+      fullPath: '/academy'
+      preLoaderRoute: typeof AcademyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -121,8 +197,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AcademyRoute: AcademyRoute,
   GalleryRoute: GalleryRoute,
   MenRoute: MenRoute,
+  TalentsRoute: TalentsRoute,
   WomenRoute: WomenRoute,
   ModelsSlugRoute: ModelsSlugRoute,
 }
