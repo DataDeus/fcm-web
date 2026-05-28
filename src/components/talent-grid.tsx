@@ -1,4 +1,5 @@
 import { SiteNav, SiteFooter } from "@/components/site-nav";
+import { CtaSection } from "@/components/cta-section";
 import { Link } from "@tanstack/react-router";
 import type { Model } from "@/lib/models";
 
@@ -46,6 +47,7 @@ export function TalentPage({
           ))}
         </div>
       </section>
+      <CtaSection />
       <SiteFooter />
     </div>
   );

@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
+import { CtaSection } from "@/components/cta-section";
 import { getModel } from "@/lib/models";
 
 export const Route = createFileRoute("/models/$slug")({
@@ -108,6 +109,8 @@ function ModelPage() {
           ))}
         </div>
       </section>
+
+      <CtaSection />
 
       <SiteFooter />
     </div>

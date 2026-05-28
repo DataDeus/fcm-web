@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
+import { CtaSection } from "@/components/cta-section";
 import { allImages } from "@/lib/models";
 
 export const Route = createFileRoute("/gallery")({
@@ -55,6 +56,7 @@ function GalleryPage() {
           ))}
         </div>
       </section>
+      <CtaSection />
       <SiteFooter />
     </div>
   );

@@ -1,8 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
-import { womenImages, menImages } from "@/lib/models";
+import { womenImages, menImages, allImages } from "@/lib/models";
 import { CtaButtons } from "@/components/cta-buttons";
+import { CtaSection } from "@/components/cta-section";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,6 +25,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
   const values = [
     {
       title: "Globally Represented",
@@ -136,16 +145,60 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-primary py-24 text-primary-foreground">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="font-display text-5xl md:text-6xl">Style. Talent. Strength.</h2>
-          <p className="mt-4 opacity-80">Get scouted, or book one of our talents — the First Cent way.</p>
-          <div className="mt-8 flex justify-center">
-            <CtaButtons tone="dark" />
+      {/* Gallery carousel */}
+      <section className="bg-secondary py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Gallery</p>
+              <h2 className="mt-4 font-display text-5xl">From the archive</h2>
+            </div>
+            <Link
+              to="/gallery"
+              className="hidden text-xs uppercase tracking-[0.3em] underline-offset-4 hover:underline md:inline"
+            >
+              See more →
+            </Link>
+          </div>
+          <div className="mt-10">
+            <Carousel
+              opts={{ loop: true, align: "start" }}
+              plugins={[autoplay.current]}
+            >
+              <CarouselContent className="-ml-4">
+                {allImages.map((src, i) => (
+                  <CarouselItem key={i} className="pl-4 basis-2/3 md:basis-1/3 lg:basis-1/4">
+                    <img
+                      src={src}
+                      alt={`Archive ${i + 1}`}
+                      loading="lazy"
+                      className="aspect-[3/4] w-full object-cover"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+          <div className="mt-10 flex justify-center md:hidden">
+            <Link
+              to="/gallery"
+              className="rounded-full border border-foreground/20 px-6 py-3 text-xs uppercase tracking-[0.2em] hover:bg-foreground/5"
+            >
+              See more →
+            </Link>
+          </div>
+          <div className="mt-10 hidden justify-center md:flex">
+            <Link
+              to="/gallery"
+              className="rounded-full bg-primary px-8 py-3 text-xs uppercase tracking-[0.2em] text-primary-foreground transition hover:opacity-90"
+            >
+              See more →
+            </Link>
           </div>
         </div>
       </section>
+
+      <CtaSection />
 
       <SiteFooter />
     </div>

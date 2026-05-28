@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
-import { CtaButtons } from "@/components/cta-buttons";
-import { useState } from "react";
+import { CtaSection } from "@/components/cta-section";
 import { allImages } from "@/lib/models";
 
 export const Route = createFileRoute("/academy")({
@@ -20,9 +19,6 @@ export const Route = createFileRoute("/academy")({
 });
 
 function AcademyPage() {
-  const [email, setEmail] = useState("");
-  const [joined, setJoined] = useState(false);
-
   const pillars = [
     { name: "Runway & Posing", body: "From the way you walk to the way you hold a frame — the fundamentals, refined." },
     { name: "Camera Presence", body: "Editorial, commercial and campaign — learning to communicate with the lens." },
@@ -79,49 +75,24 @@ function AcademyPage() {
 
       <section className="bg-secondary py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Coming Soon</p>
-          <h2 className="mt-4 font-display text-5xl md:text-6xl">Join the waitlist.</h2>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Now Enrolling</p>
+          <h2 className="mt-4 font-display text-5xl md:text-6xl">The Academy is open.</h2>
           <p className="mt-4 text-sm text-muted-foreground">
-            Be the first to hear when applications open. We don't spam.
+            Applications are live. Train with industry experts, build your portfolio, and step into a global career —
+            the First Cent way.
           </p>
-          {joined ? (
-            <p className="mt-8 font-display text-2xl">You're on the list. See you soon. 🤞</p>
-          ) : (
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (email) setJoined(true);
-              }}
-              className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
+          <div className="mt-8 flex justify-center">
+            <a
+              href="mailto:academy@firstcentmodels.com?subject=Academy%20Application"
+              className="rounded-full bg-primary px-8 py-3 text-xs uppercase tracking-[0.2em] text-primary-foreground transition hover:opacity-90"
             >
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                className="w-full rounded-full border border-border bg-background px-5 py-3 text-sm focus:border-primary focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="rounded-full bg-primary px-6 py-3 text-xs uppercase tracking-[0.2em] text-primary-foreground transition hover:opacity-90"
-              >
-                Join →
-              </button>
-            </form>
-          )}
+              Apply Now →
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <h2 className="font-display text-4xl md:text-5xl">Already industry-ready?</h2>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Apply directly to be scouted, or book one of our existing talents.
-        </p>
-        <div className="mt-8 flex justify-center">
-          <CtaButtons />
-        </div>
-      </section>
+      <CtaSection />
 
       <SiteFooter />
     </div>

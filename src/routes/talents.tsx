@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav, SiteFooter } from "@/components/site-nav";
-import { CtaButtons } from "@/components/cta-buttons";
+import { CtaSection } from "@/components/cta-section";
 import { womenModels, menModels } from "@/lib/models";
 
 export const Route = createFileRoute("/talents")({
@@ -29,9 +29,6 @@ function TalentsHub() {
         <p className="mt-6 max-w-xl text-sm text-muted-foreground">
           A curated selection of First Cent faces — represented globally across editorial, runway, and campaign.
         </p>
-        <div className="mt-8">
-          <CtaButtons />
-        </div>
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-6 px-6 pb-16 md:grid-cols-2">
@@ -86,6 +83,8 @@ function TalentsHub() {
           ))}
         </div>
       </section>
+
+      <CtaSection />
 
       <SiteFooter />
     </div>
