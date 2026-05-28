@@ -7,7 +7,6 @@ const links = [
   { label: "About", to: "/about" },
   { label: "Talents", to: "/talents" },
   { label: "Academy", to: "/academy" },
-  { label: "Gallery", to: "/gallery" },
 ] as const;
 
 export function SiteNav() {
@@ -99,11 +98,39 @@ export function SiteFooter() {
         <div>
           <p className="text-xs uppercase tracking-[0.2em] opacity-60">Contact</p>
           <p className="mt-3 text-sm">hello@firstcentmodels.com</p>
+          <p className="text-sm">+234 800 000 0000</p>
           <p className="text-sm">Lagos, Nigeria</p>
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.2em] opacity-60">Follow</p>
-          <p className="mt-3 text-sm">Instagram · TikTok · LinkedIn</p>
+          <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-sm">
+            <a
+              href="https://instagram.com/firstcentmodels"
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-4 hover:underline"
+            >
+              Instagram
+            </a>
+            <span className="opacity-50">·</span>
+            <a
+              href="https://tiktok.com/@firstcentmodels"
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-4 hover:underline"
+            >
+              TikTok
+            </a>
+            <span className="opacity-50">·</span>
+            <a
+              href="https://linkedin.com/company/firstcentmodels"
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-4 hover:underline"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-xs opacity-60">
