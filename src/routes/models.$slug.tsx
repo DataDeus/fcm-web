@@ -70,8 +70,11 @@ function ModelPage() {
 
       <section className="mx-auto max-w-7xl px-6 pb-10">
         <h1 className="font-display text-5xl md:text-7xl leading-[0.95]">
-          {model.name} <span className="text-muted-foreground">profile</span>
+          {model.name}
         </h1>
+        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+          {model.bio}
+        </p>
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-12 px-6 pb-16 md:grid-cols-[1fr_1.4fr]">
@@ -79,16 +82,29 @@ function ModelPage() {
         <div className="space-y-12">
           <div>
             <h2 className="font-display text-3xl">Measurement</h2>
-            <dl className="mt-6 divide-y divide-border border-t border-b border-border">
-              {statRows.map(([k, v]) =>
-                v ? (
-                  <div key={k} className="flex items-center justify-between py-3 text-sm">
-                    <dt className="uppercase tracking-[0.2em] text-muted-foreground">{k}</dt>
-                    <dd>{v}</dd>
-                  </div>
-                ) : null,
-              )}
-            </dl>
+            <div className="mt-6 overflow-x-auto border-t border-b border-border">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border">
+                    {statRows.filter(([, v]) => v).map(([k]) => (
+                      <th
+                        key={k}
+                        className="px-3 py-3 text-left text-xs uppercase tracking-[0.2em] text-muted-foreground font-normal"
+                      >
+                        {k}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {statRows.filter(([, v]) => v).map(([k, v]) => (
+                      <td key={k} className="px-3 py-3 text-left">{v}</td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div>
@@ -136,7 +152,6 @@ function ModelPage() {
               className="w-full object-cover"
             />
           ))}
-          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{model.bio}</p>
         </div>
       </section>
 
