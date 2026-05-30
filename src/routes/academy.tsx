@@ -81,6 +81,27 @@ function AcademyPage() {
             Applications are live. Train with industry experts, build your portfolio, and step into a global career —
             the First Cent way.
           </p>
+          <dl className="mt-10 grid gap-6 text-left sm:grid-cols-3">
+            <div className="rounded-lg border border-border bg-background p-5">
+              <dt className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Tuition</dt>
+              <dd className="mt-2 font-display text-2xl">₦50,000</dd>
+              <p className="mt-2 text-xs text-muted-foreground">Full programme. One-time fee.</p>
+            </div>
+            <div className="rounded-lg border border-border bg-background p-5">
+              <dt className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Format</dt>
+              <dd className="mt-2 font-display text-2xl">Online & Offline</dd>
+              <p className="mt-2 text-xs text-muted-foreground">
+                In-person classes available in Lagos and Port Harcourt only.
+              </p>
+            </div>
+            <div className="rounded-lg border border-border bg-background p-5">
+              <dt className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Credential</dt>
+              <dd className="mt-2 font-display text-2xl">Certificate</dd>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Earn a First Cent Certificate of Completion at the end of the programme.
+              </p>
+            </div>
+          </dl>
           <div className="mt-8 flex justify-center">
             <a
               href="mailto:academy@firstcentmodels.com?subject=Academy%20Application"

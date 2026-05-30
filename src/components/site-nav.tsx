@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const links = [
   { label: "Home", to: "/", hash: "" },
@@ -15,8 +16,9 @@ export function SiteNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="font-display text-2xl tracking-tight">
-          First Cent
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} alt="First Cent" className="h-6 w-auto invert" />
+          <span className="font-display text-2xl tracking-tight">First Cent</span>
         </Link>
         <nav className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
@@ -92,7 +94,10 @@ export function SiteFooter() {
     <footer id="contact" className="border-t border-border/60 bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-3">
         <div>
-          <h3 className="font-display text-3xl">First Cent</h3>
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="First Cent" className="h-7 w-auto" />
+            <h3 className="font-display text-3xl">First Cent</h3>
+          </div>
           <p className="mt-3 text-sm opacity-70">Shaping global careers from Africa to the world.</p>
         </div>
         <div>
@@ -134,7 +139,15 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-xs opacity-60">
-        © {new Date().getFullYear()} First Cent Management
+        © {new Date().getFullYear()} First Cent Management · Developed by{" "}
+        <a
+          href="https://wyty.org"
+          target="_blank"
+          rel="noreferrer"
+          className="underline-offset-4 hover:underline"
+        >
+          WyTy
+        </a>
       </div>
     </footer>
   );

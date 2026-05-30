@@ -8,14 +8,17 @@ export function CtaSection({
   body?: string;
 }) {
   return (
-    <section className="bg-primary py-24 text-primary-foreground">
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="font-display text-5xl md:text-6xl">{title}</h2>
-        <p className="mt-4 opacity-80">{body}</p>
-        <div className="mt-8 flex justify-center">
-          <CtaButtons tone="dark" />
+    <>
+      <section className="bg-primary py-24 text-primary-foreground">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <h2 className="font-display text-5xl md:text-6xl">{title}</h2>
+          <p className="mt-4 opacity-80">{body}</p>
+          <div className="mt-8 flex justify-center">
+            <CtaButtons tone="dark" />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <div className="bg-background py-16" aria-hidden />
+    </>
   );
 }

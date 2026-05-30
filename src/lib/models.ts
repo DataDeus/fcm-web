@@ -5,6 +5,8 @@ export type Model = {
   bio: string;
   cover: string;
   images: string[];
+  instagram?: string;
+  placements?: { city: string; agency: string }[];
   stats: {
     height: string;
     bust?: string;
