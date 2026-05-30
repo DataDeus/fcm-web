@@ -95,7 +95,7 @@ function ModelPage() {
             <h2 className="font-display text-3xl">Placement</h2>
             <table className="mt-6 w-full border-t border-b border-border text-sm">
               <tbody className="divide-y divide-border">
-                {placements.map((p) => (
+                {placements.map((p: { city: string; agency: string }) => (
                   <tr key={p.city + p.agency}>
                     <td className="py-3 pr-4 uppercase tracking-[0.2em] text-muted-foreground">{p.city}</td>
                     <td className="py-3 text-right">{p.agency}</td>
