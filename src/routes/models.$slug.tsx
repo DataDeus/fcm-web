@@ -52,7 +52,7 @@ function ModelPage() {
   const placements = model.placements ?? [
     { city: "Lagos", agency: "First Cent Management" },
   ];
-  const bookHref = `mailto:hello@firstcentmodels.com?subject=${encodeURIComponent(
+  const bookHref = `mailto:info@firstcentmodels.com?subject=${encodeURIComponent(
     `Booking request - ${model.name}`,
   )}&body=${encodeURIComponent(`I want to book, ${model.name}`)}`;
 

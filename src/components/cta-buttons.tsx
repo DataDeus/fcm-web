@@ -11,12 +11,12 @@ export function CtaButtons({ tone = "light" }: { tone?: "light" | "dark" }) {
       : "bg-primary text-primary-foreground hover:opacity-90";
   return (
     <div className="flex flex-wrap gap-3">
-      <a
-        href="mailto:hello@firstcentmodels.com?subject=Get%20Scouted"
+      <Link
+        to="/scout"
         className={`rounded-full px-6 py-3 text-xs uppercase tracking-[0.2em] transition ${primary}`}
       >
         Get Scouted
-      </a>
+      </Link>
       <Link
         to="/talents"
         className={`rounded-full border px-6 py-3 text-xs uppercase tracking-[0.2em] transition ${secondary}`}
