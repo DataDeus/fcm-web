@@ -102,8 +102,8 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.2em] opacity-60">Contact</p>
-          <p className="mt-3 text-sm">info@firstcentmodels.com</p>
-          <p className="text-sm">WhatsApp: +2348142105071</p>
+          <a href="mailto:info@firstcentmodels.com" className="mt-3 block text-sm underline-offset-4 hover:underline">info@firstcentmodels.com</a>
+          <a href="https://wa.me/2348142105071" target="_blank" rel="noreferrer" className="block text-sm underline-offset-4 hover:underline">WhatsApp: +2348142105071</a>
           <p className="text-sm">Lagos, Nigeria</p>
         </div>
         <div>
