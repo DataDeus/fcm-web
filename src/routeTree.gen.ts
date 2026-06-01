@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WomenRouteImport } from './routes/women'
 import { Route as TalentsRouteImport } from './routes/talents'
+import { Route as ScoutRouteImport } from './routes/scout'
 import { Route as MenRouteImport } from './routes/men'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as AcademyRouteImport } from './routes/academy'
@@ -26,6 +27,11 @@ const WomenRoute = WomenRouteImport.update({
 const TalentsRoute = TalentsRouteImport.update({
   id: '/talents',
   path: '/talents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScoutRoute = ScoutRouteImport.update({
+  id: '/scout',
+  path: '/scout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenRoute = MenRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/academy': typeof AcademyRoute
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
+  '/scout': typeof ScoutRoute
   '/talents': typeof TalentsRoute
   '/women': typeof WomenRoute
   '/models/$slug': typeof ModelsSlugRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/academy': typeof AcademyRoute
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
+  '/scout': typeof ScoutRoute
   '/talents': typeof TalentsRoute
   '/women': typeof WomenRoute
   '/models/$slug': typeof ModelsSlugRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/academy': typeof AcademyRoute
   '/gallery': typeof GalleryRoute
   '/men': typeof MenRoute
+  '/scout': typeof ScoutRoute
   '/talents': typeof TalentsRoute
   '/women': typeof WomenRoute
   '/models/$slug': typeof ModelsSlugRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/academy'
     | '/gallery'
     | '/men'
+    | '/scout'
     | '/talents'
     | '/women'
     | '/models/$slug'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/academy'
     | '/gallery'
     | '/men'
+    | '/scout'
     | '/talents'
     | '/women'
     | '/models/$slug'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/academy'
     | '/gallery'
     | '/men'
+    | '/scout'
     | '/talents'
     | '/women'
     | '/models/$slug'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   AcademyRoute: typeof AcademyRoute
   GalleryRoute: typeof GalleryRoute
   MenRoute: typeof MenRoute
+  ScoutRoute: typeof ScoutRoute
   TalentsRoute: typeof TalentsRoute
   WomenRoute: typeof WomenRoute
   ModelsSlugRoute: typeof ModelsSlugRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/talents'
       fullPath: '/talents'
       preLoaderRoute: typeof TalentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scout': {
+      id: '/scout'
+      path: '/scout'
+      fullPath: '/scout'
+      preLoaderRoute: typeof ScoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/men': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   AcademyRoute: AcademyRoute,
   GalleryRoute: GalleryRoute,
   MenRoute: MenRoute,
+  ScoutRoute: ScoutRoute,
   TalentsRoute: TalentsRoute,
   WomenRoute: WomenRoute,
   ModelsSlugRoute: ModelsSlugRoute,
@@ -208,3 +229,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
