@@ -152,3 +152,14 @@
     letter-spacing: -0.02em;
   }
 }
+
+@keyframes reel-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+@keyframes reel-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+.animate-reel-up { animation: reel-up 30s linear infinite; }
+.animate-reel-down { animation: reel-down 30s linear infinite; }
