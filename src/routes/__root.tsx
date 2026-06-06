@@ -97,6 +97,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap",
       },
     ],
+    scripts: [
+      { src: "https://tally.so/widgets/embed.js", async: true },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
