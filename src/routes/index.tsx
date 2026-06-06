@@ -66,9 +66,35 @@ function Index() {
               <CtaButtons tone="dark" />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <img src={womenImages[0]} alt="Model" className="aspect-[3/4] w-full object-cover" loading="lazy" />
-            <img src={menImages[0]} alt="Model" className="mt-12 aspect-[3/4] w-full object-cover" loading="lazy" />
+          <div className="relative grid h-[520px] grid-cols-2 gap-4 overflow-hidden md:h-[600px]">
+            <div className="relative overflow-hidden">
+              <div className="animate-reel-up flex flex-col gap-4">
+                {[...allImages, ...allImages].map((src, i) => (
+                  <img
+                    key={`up-${i}`}
+                    src={src}
+                    alt=""
+                    loading="lazy"
+                    className="aspect-[3/4] w-full object-cover"
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="animate-reel-down flex flex-col gap-4">
+                {[...allImages.slice().reverse(), ...allImages.slice().reverse()].map((src, i) => (
+                  <img
+                    key={`down-${i}`}
+                    src={src}
+                    alt=""
+                    loading="lazy"
+                    className="aspect-[3/4] w-full object-cover"
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-primary to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-primary to-transparent" />
           </div>
         </div>
       </section>

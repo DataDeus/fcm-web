@@ -41,6 +41,9 @@ function AcademyPage() {
               Whether you're just entering the modeling industry or already an established talent ready for your next
               level — First Cent puts your growth first.
             </p>
+            <p className="mt-4 max-w-md text-sm opacity-80">
+              Get into our 3 months personal and intensive academy training.
+            </p>
           </div>
           <img
             src={allImages[1] ?? allImages[0]}
@@ -84,7 +87,7 @@ function AcademyPage() {
           <dl className="mt-10 grid gap-6 text-left sm:grid-cols-3">
             <div className="rounded-lg border border-border bg-background p-5">
               <dt className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Tuition</dt>
-              <dd className="mt-2 font-display text-2xl">₦50,000</dd>
+              <dd className="mt-2 font-display text-2xl">₦55,000</dd>
               <p className="mt-2 text-xs text-muted-foreground">Full programme. One-time fee.</p>
             </div>
             <div className="rounded-lg border border-border bg-background p-5">
@@ -104,7 +107,9 @@ function AcademyPage() {
           </dl>
           <div className="mt-8 flex justify-center">
             <a
-              href="mailto:academy@firstcentmodels.com?subject=Academy%20Application"
+              href="https://paystack.shop/pay/fcma"
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-primary px-8 py-3 text-xs uppercase tracking-[0.2em] text-primary-foreground transition hover:opacity-90"
             >
               Apply Now →

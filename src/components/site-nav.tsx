@@ -39,12 +39,15 @@ export function SiteNav() {
           >
             Book a Model
           </Link>
-          <Link
-            to="/scout"
+          <button
+            type="button"
+            data-tally-open="b5vGVE"
+            data-tally-emoji-text="👋"
+            data-tally-emoji-animation="wave"
             className="rounded-full bg-primary px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-primary-foreground transition hover:opacity-90"
           >
             Get Scouted
-          </Link>
+          </button>
         </div>
         <button
           className="lg:hidden"
@@ -75,13 +78,16 @@ export function SiteNav() {
             >
               Book a Model
             </Link>
-            <Link
-              to="/scout"
+            <button
+              type="button"
+              data-tally-open="b5vGVE"
+              data-tally-emoji-text="👋"
+              data-tally-emoji-animation="wave"
               onClick={() => setOpen(false)}
               className="rounded-full bg-primary px-4 py-2 text-center text-[10px] uppercase tracking-[0.2em] text-primary-foreground"
             >
               Get Scouted
-            </Link>
+            </button>
           </div>
         </nav>
       )}
